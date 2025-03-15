@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="rock_paper_scissor.css">
+</head>
+<body>
+    <header>
+        <div class="top">
+            <h2>Rock Paper Scissors</h2>
+        </div>
+    </header>
+    <main>
+        <div class="game-container">
+            <div class="game">
+                <div class="choice" id="rock">
+                    <img src="/rock.png" alt="Rock">
+                </div>
+                <div class="choice" id="paper">
+                    <img src="/paper (1).png" alt="Paper">
+                </div>
+                <div class="choice" id="scissor">
+                    <img src="/scissors.png" alt="Scissors">
+                </div>
+            </div>
+        </div>
+
+        <div class="score-board">
+            <div class="score">
+                <p id="yourscore">0</p>
+                <p>You</p>
+            </div>
+            <div class="score">
+                <p id="compscore">0</p>
+                <p>Comp</p>
+            </div>
+        </div>
+
+        <div class="timer-container">
+            <p id="timer">Time Left: 5s</p>
+        </div>
+
+        <div class="msg-container">
+            <p id="msg">Play your game</p>
+        </div>
+
+        <div class="newgame">
+            <button id="new">New Game</button>
+        </div>
+    </main>
+
+    <!-- Sound Effects -->
+    <audio id="click-sound" src="click.mp3"></audio>
+    <audio id="win-sound" src="win.mp3"></audio>
+    <audio id="draw-sound" src="draw.mp3"></audio>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script src="rock_paper_scissor.js"></script>
+</body>
+</html>
