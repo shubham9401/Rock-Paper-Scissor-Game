@@ -257,14 +257,13 @@ img {
         font-size: 1.5rem;
     }
 }
-/* Add this to your existing CSS */
+
 .timer-container {
     margin-top: 1rem;
     font-size: 1.5rem;
     color: #ff6b6b;
 }
 
-/* Hover Effects */
 .choice:hover {
     transform: scale(1.1);
     background-color: rgba(255, 255, 255, 0.2);
@@ -272,7 +271,7 @@ img {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Confetti Animation */
+
 .confetti {
     position: fixed;
     top: 0;
