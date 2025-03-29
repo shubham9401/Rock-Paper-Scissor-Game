@@ -10,14 +10,14 @@ const userScorepara = document.querySelector("#yourscore");
 const compScorepara = document.querySelector("#compscore");
 const timerDisplay = document.querySelector("#timer");
 
-// Sound Effects
+
 const playSound = (soundId) => {
     const sound = document.getElementById(soundId);
     sound.currentTime = 0;
     sound.play();
 };
 
-// Confetti Animation
+
 const showConfetti = () => {
     confetti({
         particleCount: 100,
@@ -26,7 +26,7 @@ const showConfetti = () => {
     });
 };
 
-// Timer
+
 const startTimer = () => {
     timer = setInterval(() => {
         timeLeft--;
@@ -46,12 +46,11 @@ const resetTimer = () => {
     timerDisplay.textContent = `Time Left: ${timeLeft}s`;
 };
 
-// Stop Timer
+
 const stopTimer = () => {
     clearInterval(timer);
 };
 
-// New Game
 const newGame = () => {
     userScore = 0;
     compScore = 0;
@@ -63,21 +62,19 @@ const newGame = () => {
     enableChoices();
 };
 
-// Generate Computer Choice
 const genCompChoice = () => {
     let options = ["paper", "scissor", "rock"];
     const randIdx = Math.floor(Math.random() * 3);
     return options[randIdx];
 };
 
-// Game Draw
 const gameDraw = () => {
     msg.innerText = "Game Draw, Play Again";
     msg.style.backgroundColor = "#081b31";
     playSound("draw-sound");
 };
 
-// Show Winner
+
 const showWinner = (userWin, userChoice, compChoice) => {
     if (userWin) {
         userScore++;
@@ -86,12 +83,12 @@ const showWinner = (userWin, userChoice, compChoice) => {
         msg.style.backgroundColor = "green";
         playSound("win-sound");
 
-        // Show confetti only when the player reaches 10 points
+        
         if (userScore === 10) {
             showConfetti();
             msg.innerText = `You win the match! 🎉`;
             disableChoices();
-            stopTimer(); // Stop the timer when the game ends
+            stopTimer(); 
         }
     } else {
         compScore++;
@@ -100,38 +97,34 @@ const showWinner = (userWin, userChoice, compChoice) => {
         msg.style.backgroundColor = "red";
         playSound("click-sound");
 
-        // End game if the computer reaches 10 points (no confetti)
+        
         if (compScore === 10) {
             msg.innerText = `Computer wins the match! 😢`;
             disableChoices();
-            stopTimer(); // Stop the timer when the game ends
+            stopTimer(); 
         }
     }
 
-    // End game if a player reaches 10 points
+    
     if (userScore === 10 || compScore === 10) {
         disableChoices();
-        stopTimer(); // Stop the timer when the game ends
+        stopTimer(); 
     }
 };
 
-// Disable Choices
 const disableChoices = () => {
     choices.forEach((choice) => {
         choice.style.pointerEvents = "none";
     });
 };
 
-// Enable Choices
 const enableChoices = () => {
     choices.forEach((choice) => {
         choice.style.pointerEvents = "auto";
     });
 };
 
-// Play Game
 const playGame = (userChoice) => {
-    // Only allow playing if the game is not over
     if (userScore < 10 && compScore < 10) {
         const compChoice = genCompChoice();
         if (userChoice === compChoice) {
@@ -148,11 +141,10 @@ const playGame = (userChoice) => {
             showWinner(userWin, userChoice, compChoice);
         }
         resetTimer();
-        startTimer(); // Start the timer only if the game is not over
+        startTimer(); 
     }
 };
 
-// Event Listeners
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
         const userChoice = choice.getAttribute("id");
